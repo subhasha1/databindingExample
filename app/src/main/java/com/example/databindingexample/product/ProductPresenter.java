@@ -1,7 +1,6 @@
 package com.example.databindingexample.product;
 
 import android.os.AsyncTask;
-import android.os.Handler;
 
 import com.example.databindingexample.models.Currency;
 import com.example.databindingexample.models.Product;
@@ -21,7 +20,6 @@ public class ProductPresenter implements ProductContract.Presenter {
         this.view = view;
         this.product = product;
     }
-
 
     @Override
     public void start() {

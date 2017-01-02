@@ -7,12 +7,13 @@ package com.example.databindingexample.product;
 
 public interface ProductContract {
 
-     interface Presenter{
+    interface Presenter {
         void start();
     }
 
-    interface View{
+    interface View {
         void setProduct(ProductViewModel product);
+
         void setProductDetail(ProductViewModel productDetail);
 
         void showLoading();
