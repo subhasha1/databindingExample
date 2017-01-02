@@ -6,6 +6,6 @@ package com.example.databindingexample.models;
  */
 
 public class Currency {
-    public String label;
-    public String code;
+    public String label = "Rs";
+    public String code = "NRS";
 }

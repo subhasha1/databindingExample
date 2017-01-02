@@ -14,5 +14,9 @@ public interface ProductContract {
     interface View{
         void setProduct(ProductViewModel product);
         void setProductDetail(ProductViewModel productDetail);
+
+        void showLoading();
+
+        void showError();
     }
 }

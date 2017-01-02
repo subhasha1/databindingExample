@@ -28,6 +28,11 @@ public class ProductViewModel extends BaseObservable {
         this.isFavourite = isFavourite;
     }
 
+    public void setProductDetail(ProductDetail productDetail){
+        this.productDetail = productDetail;
+        notifyChange();
+    }
+
     int getId() {
         return product.id;
     }
@@ -72,6 +77,5 @@ public class ProductViewModel extends BaseObservable {
     public void onFavClicked(View view){
 
     }
-
 
 }

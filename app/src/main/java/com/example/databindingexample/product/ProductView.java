@@ -1,20 +1,23 @@
 package com.example.databindingexample.product;
 
 import android.databinding.BindingAdapter;
-import android.support.v7.app.AppCompatActivity;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
 import com.example.databindingexample.R;
+import com.example.databindingexample.databinding.ActivityMainBinding;
 import com.example.databindingexample.models.Product;
 
 public class ProductView extends AppCompatActivity implements ProductContract.View {
     ProductContract.Presenter presenter;
+    ActivityMainBinding binding;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_main);
         Product product = getFromIntent();
         presenter = new ProductPresenter(this, product);
     }
@@ -27,12 +30,23 @@ public class ProductView extends AppCompatActivity implements ProductContract.Vi
 
     @Override
     public void setProduct(ProductViewModel product) {
-
+        this.binding.setState(1);
+        this.binding.setProduct(product);
     }
 
     @Override
     public void setProductDetail(ProductViewModel productDetail) {
+//        setup pagers etc
+    }
 
+    @Override
+    public void showLoading() {
+        this.binding.setState(0);
+    }
+
+    @Override
+    public void showError() {
+        this.binding.setState(2);
     }
 
     private Product getFromIntent() {
@@ -43,7 +57,7 @@ public class ProductView extends AppCompatActivity implements ProductContract.Vi
         product.image = "url";
         product.oldPrice = 90;
         product.newPrice = 80;
-        return null;
+        return product;
     }
 
 
